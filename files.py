@@ -35,13 +35,17 @@ def main():
     print()
 
     # What errors did you get? Add a comment here with the output:
-
+    '''<class 'FileNotFoundError'> [Errno 2] No such file or directory: 'myFile.txt'''
     # The default mode for open() is 'r', so the statements above are really
     # the same code. Logically a file must exist in order for us to read it.
 
     # Now write the same code but change the mode to 'a'
     # your code here
-
+    try:
+        infile = open(fileName, 'a')
+    except Exception as error:
+        print(type(error), error)
+    print()
     # close the file
 
     # run this program then look in the file explorer window. A new text 
@@ -51,13 +55,17 @@ def main():
 
     # Now write the same code but change the mode to 'w'
     # your code here. 
-
+    try:
+        infile = open(fileName, 'w')
+    except Exception as error:
+        print(type(error), error)
+    print()
     # close the file
 
     # run the program then open the text file in a text editor and view 
     # the contents
     # add a comment here describing the contents:
-
+    '''The file is now empty'''
 
     '''
     - element access
