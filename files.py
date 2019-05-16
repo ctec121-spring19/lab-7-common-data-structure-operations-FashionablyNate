@@ -80,58 +80,71 @@ def main():
     # open your book to p. 161 and replicate the code at the center of 
     # the page that opens, reads, and prints the file. Use "infile" again
     # as the file handle
-
+    fname = "sample.txt"
+    infile = open(fname, "r")
+    data = infile.read()
+    print(data)
     # compare the program output with what you see in a text editor.
     # are they the same? Add your answer in a comment here:
-
+    '''yes the contents are the same'''
     # add a print statement that prints the length of data
     # this demonstrates that data is one big string.
     # you might try counting the characters to see if the length includes
     # line feeds.
-
+    print(len(data))
+    print(type(data))
     # closing the file - uncomment the line below when you get here
-    #infile.close()
+    infile.close()
 
     # Method 2: readlines()
     # uncomment the code below and run this program
-    '''
+    
     infile = open(fileName)
     data = infile.readlines()
     print(data)
     print()
     infile.close()
-    '''
+    
     # answer the following questions:
     # what type is data?
     # how is it different from the data in Method 1?
     # Do the strings have escape characters?
-
+    print(type(data))
+    '''data is a list, the data in method 1 is a string, the string does have escape characters and the list doesn't'''
     # write a for loop that uses data as the sequence and prints out
     # the text lines. What do you have to do in the print statement 
     # to make the ouput look like what you see in a text editor?
-
+    '''It appears that nothing additional must be done to make it look the same as the text editor'''
     # your code here
 
+    for i in data:
+        print(i)
+
     # closing the file - uncomment the line below when you get here
-    #infile.close()
+    infile.close()
 
     # Method 3: readline()
     # uncomment the following code, then add comments above each line
     # of code to describe what that line does
-    '''
+    # opens the file
     infile = open(fileName)
+    # reads a line
     line = infile.readline()
+    # cuts off extra lines
     while line != "":
         print(line[:-1])
         line = infile.readline()
+    # closes file
     infile.close()    
-    '''
 
     # Method 4: using the file handle as a sequence
     # replicate the last section of code on p. 162 that uses infile as the
     # sequence in the for loop.
     # your code here
-
+    infile = open(fileName, "r")
+    for i in range(5):
+        line = infile.readline()
+        print(line[:-1])
 
     '''
     - element insertion
@@ -139,10 +152,11 @@ def main():
     '''
     # these are really just writing to a file.
     # open "mydata.txt" for writing using the file handle "outfile"
-
+    fileName = "mydata.txt"
+    outFile = open(fileName, "w")
     # Write several lines of gibberish to the file and close it.
-
+    print("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", file=outFile)
     # view the new file in a text editor to verify that the program worked.
-
+    '''it worked'''
 
 main()
